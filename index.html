@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupplyTrack | Inventory Management</title>
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/input.css">
+</head>
+<body class="bg-stone-50 font-sans text-stone-800">
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-stone-900 text-white p-6 hidden md:block">
+            <h2 class="text-2xl font-bold mb-10 text-orange-400">SupplyTrack</h2>
+            <nav class="space-y-4">
+                <a href="#" class="block p-2 bg-stone-800 rounded">Dashboard</a>
+                <a href="#" class="block p-2 hover:bg-stone-800 rounded">Suppliers</a>
+                <a href="#" class="block p-2 hover:bg-stone-800 rounded">Reports</a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-8">
+            <header class="flex justify-between items-center mb-10">
+                <h1 class="text-3xl font-bold">Inventory Overview</h1>
+                <button onclick="toggleModal()" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition">
+                    + Add New Stock
+                </button>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                    <p class="text-stone-500">Total Items</p>
+                    <h3 id="totalItems" class="text-3xl font-bold text-stone-900">0</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                    <p class="text-stone-500">Low Stock Alert</p>
+                    <h3 id="lowStockCount" class="text-3xl font-bold text-red-500">0</h3>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden">
+                <table class="w-full text-left">
+                    <thead class="bg-stone-100 border-b border-stone-200 text-stone-600 uppercase text-sm">
+                        <tr>
+                            <th class="px-6 py-4">Item Name</th>
+                            <th class="px-6 py-4">Category</th>
+                            <th class="px-6 py-4">Quantity</th>
+                            <th class="px-6 py-4">Status</th>
+                            <th class="px-6 py-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryTable">
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-md p-8 shadow-2xl">
+            <h3 id="modalTitle" class="text-xl font-bold mb-6">Add New Ingredient</h3>
+            <div class="space-y-4">
+                <input type="text" id="itemName" placeholder="Item Name (e.g. Basmati Rice)" class="w-full p-3 border rounded-lg outline-orange-400">
+                <select id="itemCategory" class="w-full p-3 border rounded-lg">
+                    <option value="Grains">Grains</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Meat">Meat</option>
+                    <option value="Dairy">Dairy</option>
+                </select>
+                <input type="number" id="itemQty" placeholder="Quantity (kg/ltr)" class="w-full p-3 border rounded-lg outline-orange-400">
+                <div class="flex gap-4 mt-6">
+                    <button onclick="toggleModal()" class="flex-1 py-3 bg-stone-200 rounded-lg hover:bg-stone-300">Cancel</button>
+                    <button onclick="saveItem()" class="flex-1 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="src/js/app.js"></script>
+    <script src="src/js/storage.js"></script>
+   
+</body>
+</html>
