@@ -4,6 +4,8 @@ SupplyTrack is a modern B2B inventory management solution designed specifically 
 
 ---
 
+<img width="950" height="413" alt="Food Supply" src="https://github.com/user-attachments/assets/9d628141-8e8a-4ff5-ab31-b125a3f88721" />
+
 ##  Core Features
 
 ###  Real-time Inventory Dashboard
@@ -52,13 +54,8 @@ The project follows a modular structure with clear separation of concerns:
 
 /food-supply-tracker
 
-├── src/assets
-├── src/css
-|── src/js  
-│   ├── storage.js  → Handles LocalStorage logic
-│   └── app.js      → UI rendering & event handling
-├── index.html      → Main dashboard layout
-└── README.md       → Documentation
+<img width="229" height="191" alt="project structure" src="https://github.com/user-attachments/assets/d657ce78-c016-4f78-8a21-0b09e0f887c4" />
+
 
 ---
 
